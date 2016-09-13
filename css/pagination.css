@@ -1,0 +1,96 @@
+/**分页*/
+.paginate {
+  color: #a5a5a5;
+  line-height: 22px;
+  padding: 38px 0 28px;
+  text-align: center;
+}
+.paginate .pre,
+.paginate .next,
+.paginate .goto-btn {
+  display: inline-block;
+  height: 22px;
+  border: 1px solid #E9EBEE;
+  text-align: center;
+  color: #178fe6;
+  padding: 0 6.5px;
+}
+.paginate .pre:hover,
+.paginate .next:hover,
+.paginate .goto-btn:hover {
+  border-color: #178fe6;
+}
+.paginate span.pre,
+.paginate span.next {
+  background-color: #DDDDDD;
+  border-color: #DDDDDD;
+  color: #fff;
+}
+.paginate span.pre:hover,
+.paginate span.next:hover {
+  border-color: #DDDDDD;
+}
+.paginate .pre {
+  margin-right: 25px;
+}
+.paginate .next {
+  margin-left: 25px;
+}
+.paginate .paginate-list a,
+.paginate .paginate-list span {
+  display: inline-block;
+  height: 22px;
+  border: 1px solid #E9EBEE;
+  text-align: center;
+  color: #178fe6;
+  padding: 0 6.5px;
+}
+.paginate .paginate-list a:hover,
+.paginate .paginate-list span:hover {
+  border-color: #178fe6;
+}
+.paginate .paginate-list a.active,
+.paginate .paginate-list span.active {
+  background: #178fe6;
+  border-color: #178fe6;
+  color: #fff;
+}
+.paginate .paginate-list a + a,
+.paginate .paginate-list span {
+  margin-left: 10px;
+}
+.paginate .paginate-list span {
+  margin-right: 10px;
+}
+.paginate .paginate-list em {
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  margin: 0 10px;
+}
+.paginate .goto {
+  font-size: 12px;
+  margin-left: 30px;
+}
+.paginate .goto input {
+  margin: 0 10px 0 4px;
+  width: 36px;
+  height: 20px;
+  border: 1px solid #E9EBEE;
+  color: #a5a5a5;
+  text-align: center;
+  vertical-align: middle \9;
+  margin-top: -2px \9;
+}
+.paginate .goto input:focus {
+  color: #178fe6;
+  border-color: #178fe6;
+}
+.paginate .goto a.goto-btn {
+  font-size: 12px;
+}
+.paginate .goto a.goto-btn[disabled] {
+  background: #178fe6;
+  border-color: #178fe6;
+  color: #fff;
+}
