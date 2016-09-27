@@ -7,20 +7,19 @@ var pagination = (function($){
 		$container : null,
 		totalCount : 0, //数据显示总条数
 		totalPage  : 0, //总页数
-		pageSize   : 6,   
+		pageSize   : 6, //页面大小
 		currentPage: 1, //当前页默认1
  		prevContent: '<',     //上一页内容
  		nextContent: '>',     //下一页内容
  		isJump     : true,    //是否跳转到指定页数
- 		shiftingLeft:2,
- 		shiftingRight:2,
- 		preLeast:1,
- 		nextLeast:1,
- 		url: "http://192.168.6.228:8008/quesPagelist",
+ 		shiftingLeft:2,       //当前页左侧保留项
+ 		shiftingRight:2,      //当前页右侧保留项
+ 		preLeast:1,           //向前翻页保留项 
+ 		nextLeast:1,          //向后翻页保留项
+ 		url: "http://192.168.6.228:8008/quesPagelist",  //ajax url
  		dataType   :"json",
- 		success:null,
- 		error:function(){alert('请求出错，请重新请求！');},
-
+ 		success:null,   //ajax success callback
+ 		error:function(){alert('请求出错，请重新请求！');}
 	},
 	classes = {
 		preCls     : 'pre',  //上一页class
@@ -29,7 +28,6 @@ var pagination = (function($){
  		jumpCls    : 'goto',   //跳转块样式
  		jumpBtnCls : 'goto-btn'//跳转按钮class
 	},
-	//
 	commonHtmlText = {
 		createSpan    : '<span class="{0}">{1}</span>',
 		pageIndexHtml : '<a href="javascript:;" class="{0}">{1}</a>',
@@ -53,6 +51,7 @@ var pagination = (function($){
 			options.totalPage = Math.floor((options.totalCount+pagesize-1)/pagesize);
 		}
 	};
+	//创建分页导航目录html
 	createIndexHtml = function(cls,content){
 		return stringFormat(commonHtmlText.pageIndexHtml,cls,content);
 	};
@@ -79,6 +78,7 @@ var pagination = (function($){
 			return createIndexHtml("next",options.nextContent);
 		}
 	};
+	//创建分页导航目录标签按钮
 	createIndexBtn = function(){
 		/**
 		 *前：当前页 > 偏移量+至少保留+1
@@ -118,6 +118,7 @@ var pagination = (function($){
 		html += '</span>';
 		return html;
 	};
+	//将处理过的html添加到分页容器中
 	renderHtml = function(){
 		var html = createPreBtn()+createIndexBtn()+createNextBtn(),
 			rightHtml = stringFormat(commonHtmlText.rightHtml, options.totalPage);
@@ -139,7 +140,7 @@ var pagination = (function($){
 		    	if(options.totalCount > 0 && options.currentPage > 0){
 		    		renderHtml();
 		    	}
-		    },
+		    }
 		});
 	};
 	//绑定事件
@@ -193,12 +194,11 @@ var pagination = (function($){
 		}
 		return str;
 	};
-
+	//初始化
 	initModule = function(opts){
 		options = $.extend(options, opts);
 		doPageData();
 		eBind();
-		
 	};
 	return {initModule:initModule};
 })(jQuery);
