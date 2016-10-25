@@ -172,9 +172,17 @@ var pagination = (function($){
 		});
 		jumpbtn.live('click',function(){
 			var oIpt = con.find('#gotoinput'), pageIndex = ~~oIpt.val();
-			if(!isNaN(pageIndex) && pageIndex >0 && pageIndex <= options.totalPage){
-				options.currentPage = pageIndex;
-				doPageData();
+			if(oIpt.val() != "" && !isNaN(oIpt.val())){
+				if(pageIndex >0 && pageIndex <= options.totalPage){
+					options.currentPage = pageIndex;
+					doPageData();
+				}else if(pageIndex <= 0){
+					options.currentPage = 1;
+					doPageData();
+				}else if(pageIndex > options.totalPage){
+					options.currentPage = options.totalPage;
+					doPageData();
+				}
 			}else{
 				oIpt.focus();
 			}
